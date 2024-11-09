@@ -1,0 +1,28 @@
+name: build and run clean.c
+
+on:							
+  push:
+    branches: [ "main" ]			
+
+jobs:
+  test:						
+    runs-on: ubuntu-latest			
+    steps:
+      - uses: actions/checkout@v4		
+
+      - name: Build clean and Run Tests
+        run: make clean; ./clean < wbcd.txt > cleaned_wbcd.txt
+
+      - name: Upload clean executable			
+        uses: actions/upload-artifact@v4	
+        with:
+          name: clean			
+          path: ./clean
+
+      - name: Upload Clean Results
+        if: ${{ always() }}
+
+        uses: actions/upload-artifact@v4
+        with:
+          name: Clean Results
+          path: ./cleaned_wbcd.txt
