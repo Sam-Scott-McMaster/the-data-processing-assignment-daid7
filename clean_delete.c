@@ -4,6 +4,17 @@
 #include <math.h>
 #include <stdbool.h>
 
+/* clean_delete
+ * 
+ * Parameters:  float** array = 2D array, 
+ *              int *rows = number of rows in 2D array, allowing side effect,
+ *              int cols = number of columns in 2D array.
+ * Purpose:     Remove bad rows from array in a new 2D array, realloc memory, 
+ *              and return new array.
+ * Outputs:     None
+ * Returns:     float** cleanArray = new 2D array truncated bad rows
+ */
+
 float** clean_delete(float** array, int *rows, int cols) {
     // Create new 2D array, malloc by rows then each row by cols
     float** cleanArray = malloc((*rows) * sizeof(float *));
@@ -47,6 +58,9 @@ float** clean_delete(float** array, int *rows, int cols) {
 
     // Realloc memory to truncated number of rows
     cleanArray = realloc(cleanArray, (*rows) * sizeof(float *));
+
+    // deallocate memory
+    free(array);
 
     // return cleaned array
     return cleanArray;

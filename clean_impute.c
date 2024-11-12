@@ -3,6 +3,17 @@
 #include <stdlib.h>
 #include <math.h>
 
+/* clean_impute
+ * 
+ * Parameters:  float** array = 2D array, 
+ *              int rows = number of rows in 2D array, 
+ *              int cols = number of columns in 2D array.
+ * Purpose:     Replace bad values by its column's valid values' average, 
+ *              replace by 0 if none valid in column, return cleaned array.
+ * Outputs:     None
+ * Returns:     float** array = modified 2D array replaced bad values
+ */
+
 float** clean_impute(float** array, int rows, int cols) {
 
     // Declare averages array

@@ -1,12 +1,13 @@
 /* Danny Dai, 400505160, 2024/11/21
- * 
+ *
+ * Reads a 2D grid of floats given int rows and columns length, and replace bad values with legal values,
+ * either by imputation (replace by column average) or deletion (delete bad rows).
+ * Then output the corrected 2D grid of floats data and updated rows and columns length.
  */
 
 // Include standard libraries
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-#include <stdbool.h>
 #include <string.h>
 
 // Include self-defined functions
@@ -14,6 +15,16 @@
 #include "clean_impute.h"
 #include "clean_delete.h"
 #include "output_data.h"
+
+/* main
+ *
+ * Call read_data function to read 2D array, 
+ * and get row and column length by side effect. 
+ * Check command line arguments to call 
+ * imputation or deletion function to replace bad values.
+ * Call output_data to print row and column length, and 2D array.
+ * Deallocate memory then exit program.
+ */
 
 int main(int argc, char *argv[]) {
 
