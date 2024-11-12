@@ -1,0 +1,1 @@
+float** clean_delete(float** array, int *rows, int cols);

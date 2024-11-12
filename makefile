@@ -1,2 +1,2 @@
-clean: clean.c
-	gcc -o clean clean.c
+clean: clean.c read_data.c read_data.h clean_impute.c clean_impute.h clean_delete.c clean_delete.h output_data.c output_data.h
+	gcc -o clean clean.c read_data.c clean_impute.c clean_delete.c output_data.c

@@ -1,0 +1,1 @@
+void output_data(float** array, int rows, int cols);
